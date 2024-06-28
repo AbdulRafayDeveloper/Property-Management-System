@@ -1,0 +1,160 @@
+/*
+Template Name: 360HR - Admin & Dashboard Template
+Author: Themesbrand
+Website: https://themesbrand.com/
+Contact: support@themesbrand.com
+File: Custom Css File
+*/
+
+.filter__field{
+    height: 15rem;
+    overflow-y: auto;
+}
+
+.accordion-body{
+    padding: 10px 0 !important;
+}
+
+.avatar-xsm{
+    height: 2.4rem;
+    width: 2.4rem
+}
+
+.rounded-circle{
+  object-fit: cover; /* this is crucial for maintaining the aspect ratio */
+  border-radius: 50%; 
+}
+
+.avatar-xxs .rounded-circle{
+  height: 1.5rem;
+}
+
+.avatar-xs .rounded-circle{
+  height: 2rem;
+}
+
+.avatar-sm .rating-page{
+  height: 2.5rem;
+}
+
+// .avatar-lg .rounded-circle{
+//   height: auto;
+// }
+
+.avatar-lg .item-details{
+  height: 6rem !important;
+}
+
+.profile-wid-bg-show::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0.9;
+  background: #4b38b3 !important;
+  background: linear-gradient(to top, #221a52, #4b38b3) !important;
+}
+
+.profile-wid-bg::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0.9;
+  background: transparent !important;
+  background: transparent !important;
+}
+
+
+
+// loader 
+/* KEYFRAMES */
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  border-top: 4px solid black;
+  border-right: 4px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.loader::after {
+  content: '';  
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border-bottom: 4px solid #FF3D00;
+  border-left: 4px solid transparent;
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+
+
+// custom scrollbar
+
+/* This styles the scrollbar track (the part the thumb slides within) */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Track background color */
+}
+
+/* This styles the scrollbar thumb (the draggable element) */
+::-webkit-scrollbar-thumb {
+    background: #888; /* Thumb background color */
+}
+
+/* This styles the scrollbar thumb on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Thumb background color on hover */
+}
+
+/* This styles the main scrollbar container */
+::-webkit-scrollbar {
+    width: 8px; /* Width of the vertical scrollbar */
+    height: 10px; /* Height of the horizontal scrollbar */
+}
+
+.cp{
+  cursor: pointer;
+}
+.blur{
+  color: lightgrey !important;
+}
+
+.amenity__icon{
+  border-radius: 50%;
+  padding: 5px;
+  color: white;
+}
+
+.amenity{
+  width: 13rem;
+}
+
+.pointer{
+  cursor: pointer;
+}
+
+.active{
+  color: white !important;
+}
+.active a{
+  color: white !important;
+}

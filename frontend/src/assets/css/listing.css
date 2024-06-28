@@ -1,0 +1,158 @@
+
+
+.search__image {
+  width: 100%;
+  z-index: -1;
+}
+.image__bar{
+  top: -4.1rem;
+  left: 50%;
+  z-index: -1;
+  transform: translate(-50%);
+}
+.searchBox {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.searchBox input{
+  width: 70rem;
+}
+.p-absolute{
+  position: absolute;
+}
+
+@media (width < 600px) {
+  .searchBox input{
+    width: 30rem;
+  }
+  .p-absolute{
+    position:initial;
+  }
+}
+/* .form-control {
+} */
+.searcharea .form-control{
+  font-size: 2rem !important;
+  padding: 10px 15px !important;
+}
+.search__icons {
+  top: 0;
+  right: 10px;
+}
+.search__icons svg {
+  font-size: 2.5rem;
+  color: var(--bg-dark-blue);
+}
+.listings{
+  /* background-color: #DFCFC3; */
+  width: 100%;
+  padding: 2rem 5rem 5rem 5rem;
+}
+.card__item{
+  background-color: white;
+  border-radius: 20px !important;
+  box-shadow: 4px 6px 8px rgba(0,0,0,0.4);
+}
+.right_shadow{
+  box-shadow: 4px 6px 8px rgba(0,0,0,0.4);
+}
+.card__item .img_container{
+  border-top-left-radius: 20px !important;
+  border-top-right-radius: 20px !important;
+  overflow: hidden;
+}
+.card__item img{
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.item__tag{
+  background-color: var(--bg-dark-blue);
+  padding: 8px 13px;
+  width: fit-content;
+  color: white;
+  border-radius: 5px;  
+}
+.item__price{
+  width: 100%;
+  text-align: end;
+  padding: 0 20px 10px 0;
+}
+.item__avatar--container{
+  overflow: hidden;
+  border-radius: 50%;
+}
+.item__avaatr{
+  top: 10px;
+  left: 10px;
+}
+.item__avatar--container img{
+  width: 7rem;
+  height: 7rem;
+  object-fit: cover;
+  object-position: center;
+}
+.neighborhood{
+  background-color: #F2EFE5;
+  width: 100%;
+  padding: 5rem;
+}
+.search__heading{
+  font-weight: bolder;
+  font-size: 6rem;
+  color: #264346;
+}
+.search__des{
+  font-weight: bolder;
+  font-size: 1.6rem !important;
+  color: #264346; 
+}
+@media (width < 600px) {
+  .search__heading{
+    font-size: 3.4rem;
+  }
+  .search__des{
+    font-size: 1.3rem !important;
+  }
+}
+.filter select{
+  width: 10rem;
+}
+.listing__gallery{
+  padding: 3rem 10rem;
+}
+.image_1{
+  width: 25rem;
+}
+.image_2{
+  width: 17rem;
+}
+.image_3{
+  width: 19rem;
+}
+.image_4{
+  width: 20rem;
+  margin-top: -7rem;
+  margin-left: 2rem;
+}
+.image_5{
+  width: 40rem;
+  margin-top: -1rem;
+}
+.image_6{
+  width: 33rem;
+  margin-top: 2rem;
+}
+.listing__galler__card{
+  height: 25rem;
+}
+.listing__galler__card .inner{
+  padding-right: 3rem !important;
+}
+.last__card__first__row{
+  margin-top: 10rem;
+}
+.card__bottom{
+  margin-top: -3rem;
+}

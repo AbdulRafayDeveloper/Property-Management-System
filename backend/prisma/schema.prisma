@@ -1,0 +1,163 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+enum Title {
+  Mr
+  Ms
+  Mrs
+}
+
+enum EmploymentStatus {
+  Employed
+  Unemployed
+  SelfEmployed
+  Student
+}
+
+enum Role {
+  Director
+  Owner
+  PropertyManager
+  LettingsManager
+  Finance
+  Other
+}
+
+//User Schema
+model User {
+  id                Int                @id @default(autoincrement())
+  firstName         String
+  lastName          String
+  email             String             @unique
+  password          String
+  birthdate         DateTime?
+  gender            String?
+  profileImageUrl   String             @default("")
+  isAdmin           Boolean            @default(false)
+  lastLogin         DateTime?
+  tokens            Token[]
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+  isVerified        Boolean           @default(false)
+  verificationTokens VerificationToken[]
+  isLandlord Boolean @default(false)
+  isRenter   Boolean @default(false)
+  LandlordDetails   LandlordDetails[]
+  RenterDetails     RenterDetails[]
+  listings         Listing[]
+  filter         Filter[]
+}
+
+model LandlordDetails {
+  id                Int               @id @default(autoincrement())
+  userId            Int               @unique
+  title             Title
+  businessName      String?
+  phoneNumber       String
+  company           String
+  numberOfTenancies Int
+  role              Role
+  user              User              @relation(fields: [userId], references: [id])
+}
+
+model RenterDetails {
+  id                Int               @id @default(autoincrement())
+  userId            Int               @unique
+  currentAddress    String
+  employmentStatus  EmploymentStatus
+  schoolName        String?
+  schoolYear        String?
+  user              User              @relation(fields: [userId], references: [id])
+}
+
+//User Auth Token
+model Token {
+  id        Int      @id @default(autoincrement())
+  token     String   @unique
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+}
+
+//User Email Verification Tokens
+model VerificationToken {
+  id        Int      @id @default(autoincrement())
+  token     String   @unique
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  expires   DateTime
+}
+
+//Listing Table
+model Listing {
+  id               Int             @id @default(autoincrement())
+  userId           Int
+  user             User            @relation(fields: [userId], references: [id])
+  address          String
+  monthlyRent      Float
+  deposit          Float?
+  duration         Duration
+  availableDate    DateTime
+  bedrooms         Int
+  bathrooms        Int
+  spaceType        SpaceType
+  propertyType     PropertyType
+  amenities        Json            // JSON type to hold both "In the Home" and "On the Property"
+  safety           Json 
+  description      String
+  photos           String[]
+  createdAt        DateTime        @default(now())
+  updatedAt        DateTime        @updatedAt
+}
+
+enum Duration {
+  Flexible
+  Fixed
+  Annual
+}
+
+enum SpaceType {
+  EntirePlace
+  PrivateRoom
+  SharedRoom
+}
+
+enum PropertyType {
+  Apartment
+  House
+  CoLiving
+  GuestHouse
+  Condo
+  Townhouse
+  Basement
+}
+
+// Filter Schema
+model Filter {
+  id               Int             @id @default(autoincrement())
+  userId           Int             @unique
+  user             User            @relation(fields: [userId], references: [id])
+  address          String
+  targetMoveDate   DateTime
+  targetBudget     Float
+  leaseType        Duration
+  moveOutDate      DateTime?
+  rentalType       SpaceType[]
+  propertyType     PropertyType[]
+  mustHaveAmenities Json           // JSON type for storing must-have amenities
+  createdAt        DateTime        @default(now())
+  updatedAt        DateTime        @updatedAt
+}
+
+
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
